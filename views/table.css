@@ -1,0 +1,30 @@
+table {
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 5%;
+}
+
+th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+tr {
+    background-color: rgb(245, 245, 245);
+}
+
+tr:first-child {
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(43, 43, 43);
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+li {
+    list-style: none;
+}

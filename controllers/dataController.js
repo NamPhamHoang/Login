@@ -4,15 +4,24 @@ var xhr = require("xhr")
 const axios = require('axios')
 const mysql = require('mysql')
 
-
 const configMySQL = {
     host     : 'localhost',
     user     : 'root',
     password : '',
     database : 'payroll'
 }
+//May MINH AN
+// const configMySQL = {
+//     host     : 'localhost',
+//     port     : '3306',
+//     user     : 'root',
+//     password : '123456',
+//     database : 'payroll',
+//     insecureAuth : true
+// }
 
 var connection = mysql.createConnection(configMySQL)
+connection.connect();
 
 const router = express.Router()
 
@@ -23,19 +32,10 @@ const configSQLSerVer = {
     database: 'HR'
 }
 
-function connectDB() {
-    sql.connect(configSQLSerVer, (err) => {
-        if(err) console.log(err)
-        else console.log("connected")
-    })
-}
-
 sql.connect(configSQLSerVer, (err) => {
     if(err) console.log(err)
     else console.log("connected")
 })
-
-connection.connect();
 
 router.get("",function(req,res) {
     axios.get("http://localhost:3000/data/employee").then( function(resp) {

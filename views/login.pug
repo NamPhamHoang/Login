@@ -1,13 +1,17 @@
 doctype html
 head
-  title Pug
+  title Login
   link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous')
+  link(href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&display=swap" rel="stylesheet")
   style
     include login.css  
-h1 Login
-form(method="post")
-    input#login.fadeIn.second(type='text' name='username' placeholder='username')
-    input#password.fadeIn.third(type='text' name='password' placeholder='password')
-    input.fadeIn.fourth(type='submit' value='Login')
+h1 Welcome
+form#form-login(method="post")
+    input.form-control(type='text' name='username' placeholder='username')
+    br
+    input.form-control(type='password' name='password' placeholder='password')
+    br
+    div#divInput
+      input(type='submit' value='Login')
     // Remind Passowrd
 

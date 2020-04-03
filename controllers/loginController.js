@@ -6,6 +6,15 @@ const configMySQL = {
     password : '',
     database : 'payroll'
 }
+//May MINH AN
+// const configMySQL = {
+//     host     : 'localhost',
+//     port     : '3306',
+//     user     : 'root',
+//     password : '123456',
+//     database : 'payroll',
+//     insecureAuth : true
+// }
 
 var connection = mysql.createConnection(configMySQL)
 connection.connect();

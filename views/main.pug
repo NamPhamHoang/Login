@@ -1,4 +1,10 @@
-table(style='width:100%')
+doctype html
+head
+  title Table
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous')
+  style
+    include table.css 
+table
   tr
     th Employment ID
     th Last Name
@@ -17,9 +23,10 @@ table(style='width:100%')
         td 
             li=person.Email
         td 
+            li=person.Phone_Number
+        td 
             li=person.Pay_Rates.Pay_Amount
-li=sum
-li=sumByShareHolder
-li=sumByMale
-li=sumByFemale
-
+li="Total: "+sum
+li="Total By Shareholder: "+sumByShareHolder
+li="Total By Male: "+sumByMale
+li="Total By Female: "+sumByFemale

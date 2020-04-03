@@ -23,6 +23,21 @@ app.use('/public', express.static('public'))
 const adapter = new FileSync('db.json')
 const db = low(adapter)
 
+app.get('/local', function(req,res) {
+    axios.get("http://localhost:3000/data").then( function(resp) {
+        // Set some defaults
+        db.defaults({ personals: []})
+        .write()
+        db.get('personals').remove({Employee_ID: 1002}).write()
+        db.get('personals').remove({Employee_ID: 1001}).write()
+        // Add a post
+        resp.data.forEach(element => {
+            db.get('personals').push(element).write()
+        });
+        res.send("Updated")
+    })
+})
+
 app.get('/updateLocalDB', function(req,res) {
     axios.get("http://localhost:3000/data").then( function(resp) {
         // Set some defaults
@@ -41,7 +56,7 @@ app.get('/updateLocalDB', function(req,res) {
 app.set("view engine", "pug")
 app.set("views", "./views")
 
-app.get('/main', (req, res) =>{
+app.get('/', authLogin, (req, res) =>{
     var personals = db.get('personals').__wrapped__.personals
     var sum = 0;
     var sumByShareHolder = 0;
@@ -51,11 +66,6 @@ app.get('/main', (req, res) =>{
     personals.filter(person => person.Shareholder_Status==true).forEach(person => sumByShareHolder+=person.Pay_Rates.Pay_Amount)
     personals.filter(person => person.Gender==true).forEach(person => sumByMale+=person.Pay_Rates.Pay_Amount)
     personals.filter(person => person.Gender==false).forEach(person => sumByFemale+=person.Pay_Rates.Pay_Amount)
-    var date = new Date()
-    
-   var today = date.getFullYear() + ":" + date.get
-   
-   console.log(today)
     res.render('main', 
         {   personals:personals,
             sum:sum,
@@ -65,11 +75,17 @@ app.get('/main', (req, res) =>{
         }
     )  
 })
+
+app.get('/main', authLogin, (req,res) => {
+    //res.send('./views/index')
+    res.redirect('/')
+})
+
 app.get('/login', loginController.getLogin)
 app.post('/login', loginController.postLogin)
 
-app.get('/logout', logoutController)
+app.get('/logout', authLogin, logoutController)
 
 app.use('/data', Data)
 
-app.listen(3000)
+app.listen(3000,() => console.log("Listening PORT 3000."))
