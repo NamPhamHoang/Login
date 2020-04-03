@@ -1,0 +1,146 @@
+{
+  "personals": [
+    {
+      "Employee_ID": 1001,
+      "First_Name": "Huynh",
+      "Last_Name": "Tuan",
+      "Middle_Initial": "Duc",
+      "Address1": "Cam Le Hoa Phat",
+      "Address2": null,
+      "City": "Da Nang",
+      "State": "VietNamese",
+      "Zip": null,
+      "Email": "huynhhoangtuan112@duytan.edu.vn",
+      "Phone_Number": "02314235",
+      "Social_Security_Number": "1120",
+      "Drivers_License": "Professor",
+      "Marital_Status": "Single",
+      "Gender": true,
+      "Shareholder_Status": true,
+      "Benefit_Plans": {
+        "Benefit_Plan_ID": 1,
+        "Plan_Name": "Reward",
+        "Deductable": 20,
+        "Percentage_CoPay": 10
+      },
+      "Ethnicity": "Kinh",
+      "Emergency": {
+        "Employee_ID": 1001,
+        "Emergency_Contact_Name": "An",
+        "Phone_Number": "20019293",
+        "Relationship": "Dad"
+      },
+      "Job_History": {
+        "ID": 1,
+        "Employee_ID": 1001,
+        "Department": "Accounting",
+        "Division": "Accounter",
+        "Start_Date": "2019-03-12T00:00:00.000Z",
+        "End_Date": null,
+        "Job_Title": "Accounter",
+        "Supervisor": null,
+        "Job_Category": "Count money",
+        "Location": "6th floor 254 Nguyen Van Linh",
+        "Departmen_Code": 201,
+        "Salary_Type": 1,
+        "Pay_Period": "Date",
+        "Hours_per_Week": 40,
+        "Hazardous_Training": true
+      },
+      "Employment": {
+        "Employee_ID": 1001,
+        "Employment_Status": "Working",
+        "Hire_Date": "2018-01-31T00:00:00.000Z",
+        "Workers_Comp_Code": "Duc",
+        "Termination_Date": null,
+        "Rehire_Date": null,
+        "Last_Review_Date": "2020-04-02T00:00:00.000Z"
+      },
+      "SSN": 201482421,
+      "Pay_Rate": "3.0",
+      "Pay_Rates": {
+        "idPay_Rates": 1,
+        "Pay_Rate_Name": "Staff",
+        "Value": 500000,
+        "Tax_Percentage": 9,
+        "Pay_Type": 1,
+        "Pay_Amount": 7000000,
+        "PT_Level_C": 2
+      },
+      "Vacation_Days": 5,
+      "Paid_To_Date": 99,
+      "Paid_Last_Year": 99
+    },
+    {
+      "Employee_ID": 1002,
+      "First_Name": "Nguyen",
+      "Last_Name": "Dao",
+      "Middle_Initial": "Anh",
+      "Address1": "Hoa Son Lien Chieu",
+      "Address2": "Son Tra",
+      "City": "Da Nang",
+      "State": "VietNamese",
+      "Zip": null,
+      "Email": "anhdao@gmail.com",
+      "Phone_Number": "2131123",
+      "Social_Security_Number": "1150",
+      "Drivers_License": "Professor",
+      "Marital_Status": "Married",
+      "Gender": false,
+      "Shareholder_Status": false,
+      "Benefit_Plans": {
+        "Benefit_Plan_ID": 2,
+        "Plan_Name": "Addition",
+        "Deductable": 40,
+        "Percentage_CoPay": 30
+      },
+      "Ethnicity": "Kinh",
+      "Emergency": {
+        "Employee_ID": 1002,
+        "Emergency_Contact_Name": "Nam",
+        "Phone_Number": "1239129",
+        "Relationship": "Husband"
+      },
+      "Job_History": {
+        "ID": 2,
+        "Employee_ID": 1002,
+        "Department": "Human recources",
+        "Division": "Finance",
+        "Start_Date": "2016-09-30T00:00:00.000Z",
+        "End_Date": "2020-04-02T00:00:00.000Z",
+        "Job_Title": "Human manager",
+        "Supervisor": 4,
+        "Job_Category": "Count people",
+        "Location": "5th floor 254 Nguyen Van Linh",
+        "Departmen_Code": 2,
+        "Salary_Type": 2,
+        "Pay_Period": "Year",
+        "Hours_per_Week": null,
+        "Hazardous_Training": false
+      },
+      "Employment": {
+        "Employee_ID": 1002,
+        "Employment_Status": "Retired",
+        "Hire_Date": "2016-03-23T00:00:00.000Z",
+        "Workers_Comp_Code": "Dao",
+        "Termination_Date": "2020-04-02T00:00:00.000Z",
+        "Rehire_Date": null,
+        "Last_Review_Date": "2020-03-29T00:00:00.000Z"
+      },
+      "SSN": 401287954,
+      "Pay_Rate": "3.33",
+      "Pay_Rates": {
+        "idPay_Rates": 2,
+        "Pay_Rate_Name": "Manager",
+        "Value": 10000000,
+        "Tax_Percentage": 10,
+        "Pay_Type": 2,
+        "Pay_Amount": 15000000,
+        "PT_Level_C": 3
+      },
+      "Vacation_Days": 10,
+      "Paid_To_Date": 99,
+      "Paid_Last_Year": 99
+    }
+  ]
+}

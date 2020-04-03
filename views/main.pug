@@ -1,0 +1,25 @@
+table(style='width:100%')
+  tr
+    th Employment ID
+    th Last Name
+    th First Name
+    th Email
+    th Phone
+    th Salary
+  each person in personals
+    tr
+        td 
+            li=person.Employee_ID
+        td 
+            li=person.Last_Name
+        td 
+            li=person.First_Name
+        td 
+            li=person.Email
+        td 
+            li=person.Pay_Rates.Pay_Amount
+li=sum
+li=sumByShareHolder
+li=sumByMale
+li=sumByFemale
+
