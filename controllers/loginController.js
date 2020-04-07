@@ -34,7 +34,7 @@ module.exports.postLogin = async (req, res) => {
             if (user.Password==req.body.password) {
                 res.cookie("username",user.User_Name); 
                 res.cookie("password",user.Password); 
-                res.status(200).redirect('/main')            
+                res.status(200).redirect('/')            
             }
             else {
                 res.status(500).send({

@@ -1,32 +1,403 @@
 doctype html
 head
-  title Table
-  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous')
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(rel='apple-touch-icon' sizes='76x76' href='./black-dashboard-master/assets/img/apple-icon.png')
+  link(rel='icon' type='image/png' href='./black-dashboard-master/assets/img/favicon.png')
+  title
+    | Black Dashboard by Creative Tim
+  // Fonts and icons
+ 
+  link(href='https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800' rel='stylesheet')
+  link(href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet')
+  // Nucleo Icons
   style
-    include table.css 
-table
-  tr
-    th Employment ID
-    th Last Name
-    th First Name
-    th Email
-    th Phone
-    th Salary
-  each person in personals
-    tr
-        td 
-            li=person.Employee_ID
-        td 
-            li=person.Last_Name
-        td 
-            li=person.First_Name
-        td 
-            li=person.Email
-        td 
-            li=person.Phone_Number
-        td 
-            li=person.Pay_Rates.Pay_Amount
-li="Total: "+sum
-li="Total By Shareholder: "+sumByShareHolder
-li="Total By Male: "+sumByMale
-li="Total By Female: "+sumByFemale
+    include ../black-dashboard-master/assets/demo/demo.css  
+    include ../black-dashboard-master/assets/css/black-dashboard.css
+    include ../black-dashboard-master/assets/css/nucleo-icons.css
+.wrapper
+  .sidebar
+    .sidebar-wrapper
+      .logo
+        a.simple-text.logo-mini(href='javascript:void(0)')
+          | CT
+        a.simple-text.logo-normal(href='javascript:void(0)')
+          | Creative Tim
+      ul.nav
+        li.active
+          a(href='./dashboard.html')
+            i.tim-icons.icon-chart-pie-36
+            p Dashboard
+  .main-panel
+    // Navbar
+    nav.navbar.navbar-expand-lg.navbar-absolute.navbar-transparent
+      .container-fluid
+        .navbar-wrapper
+          .navbar-toggle.d-inline
+            button.navbar-toggler(type='button')
+              span.navbar-toggler-bar.bar1
+              span.navbar-toggler-bar.bar2
+              span.navbar-toggler-bar.bar3
+          a.navbar-brand(href='javascript:void(0)') Dashboard
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navigation' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-bar.navbar-kebab
+          span.navbar-toggler-bar.navbar-kebab
+          span.navbar-toggler-bar.navbar-kebab
+        #navigation.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.search-bar.input-group
+              button#search-button.btn.btn-link(data-toggle='modal' data-target='#searchModal')
+                i.tim-icons.icon-zoom-split
+                span.d-lg-none.d-md-block Search
+            li.dropdown.nav-item
+              a.dropdown-toggle.nav-link(href='javascript:void(0)' data-toggle='dropdown')
+                .notification.d-none.d-lg-block.d-xl-block
+                i.tim-icons.icon-sound-wave
+                p.d-lg-none
+                  | Notifications
+              ul.dropdown-menu.dropdown-menu-right.dropdown-navbar
+                li.nav-link
+                  a.nav-item.dropdown-item(href='#') Mike John responded to your email
+                li.nav-link
+                  a.nav-item.dropdown-item(href='javascript:void(0)') You have 5 more tasks
+                li.nav-link
+                  a.nav-item.dropdown-item(href='javascript:void(0)') Your friend Michael is in town
+                li.nav-link
+                  a.nav-item.dropdown-item(href='javascript:void(0)') Another notification
+                li.nav-link
+                  a.nav-item.dropdown-item(href='javascript:void(0)') Another one
+            li.dropdown.nav-item
+              a.dropdown-toggle.nav-link(href='#' data-toggle='dropdown')
+                .photo
+                  img(src='../black-dashboard-master/assets/img/anime3.png' alt='Profile Photo')
+                b.caret.d-none.d-lg-block.d-xl-block
+                p.d-lg-none
+                  | Log out
+              ul.dropdown-menu.dropdown-navbar
+                li.nav-link
+                  a.nav-item.dropdown-item(href='javascript:void(0)') Profile
+                li.nav-link
+                  a.nav-item.dropdown-item(href='javascript:void(0)') Settings
+                li.dropdown-divider
+                li.nav-link
+                  a.nav-item.dropdown-item(href='javascript:void(0)') Log out
+            li.separator.d-lg-none
+    #searchModal.modal.modal-search.fade(tabindex='-1' role='dialog' aria-labelledby='searchModal' aria-hidden='true')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            input#inlineFormInputGroup.form-control(type='text' placeholder='SEARCH')
+            button.close(type='button' data-dismiss='modal' aria-label='Close')
+              i.tim-icons.icon-simple-remove
+    // End Navbar
+    .content
+      .row
+        .col-12
+          .card.card-chart
+            .card-header
+              .row
+                .col-sm-6.text-left
+                  h5.card-category Total Shipments
+                  h2.card-title Performance
+                .col-sm-6
+                  .btn-group.btn-group-toggle.float-right(data-toggle='buttons')
+                    label#0.btn.btn-sm.btn-primary.btn-simple.active
+                      input(type='radio' name='options' checked='')
+                      span.d-none.d-sm-block.d-md-block.d-lg-block.d-xl-block Accounts
+                      span.d-block.d-sm-none
+                        i.tim-icons.icon-single-02
+                    label#1.btn.btn-sm.btn-primary.btn-simple
+                      input.d-none.d-sm-none(type='radio' name='options')
+                      span.d-none.d-sm-block.d-md-block.d-lg-block.d-xl-block Purchases
+                      span.d-block.d-sm-none
+                        i.tim-icons.icon-gift-2
+                    label#2.btn.btn-sm.btn-primary.btn-simple
+                      input.d-none(type='radio' name='options')
+                      span.d-none.d-sm-block.d-md-block.d-lg-block.d-xl-block Sessions
+                      span.d-block.d-sm-none
+                        i.tim-icons.icon-tap-02
+            .card-body
+              .chart-area
+                canvas#chartBig1
+      .row
+        .col-lg-4
+          .card.card-chart
+            .card-header
+              h5.card-category Total Shipments
+              h3.card-title
+                i.tim-icons.icon-bell-55.text-primary
+                |  763,215
+            .card-body
+              .chart-area
+                canvas#chartLinePurple
+        .col-lg-4
+          .card.card-chart
+            .card-header
+              h5.card-category Daily Sales
+              h3.card-title
+                i.tim-icons.icon-delivery-fast.text-info
+                |  3,500&euro;
+            .card-body
+              .chart-area
+                canvas#CountryChart
+        .col-lg-4
+          .card.card-chart
+            .card-header
+              h5.card-category Completed Tasks
+              h3.card-title
+                i.tim-icons.icon-send.text-success
+                |  12,100K
+            .card-body
+              .chart-area
+                canvas#chartLineGreen
+      .row
+        .col-lg-12.col-md-12
+          .card
+            .card-header
+              h4.card-title  Employee Table
+            .card-body
+              .table-responsive
+                table.table.tablesorter(id='')
+                  thead.text-primary
+                    tr
+                      th
+                        | Name
+                      th
+                        | Email
+                      th
+                        | City
+                      th.text-center
+                        | Salary
+                  tbody
+                    each person in personals
+                      tr
+                          td
+                              =person.First_Name + person.Middle_Initial + person.Last_Name 
+                          td
+                              =person.Email
+                          td
+                              =person.City
+                          td.text-center
+                              =person.Pay_Rates.Pay_Amount
+
+
+        .col-lg-12.col-md-12
+          .card
+            .card-header
+              h4.card-title  Statistical tables
+            .card-body
+              .table-responsive
+                table.table.tablesorter(id='')
+                  thead.text-primary
+                    tr
+                      th
+                        | Gender
+                      th.text-center
+                        | Salary
+                  tbody
+                      tr
+                        td
+                          | Male
+                        td.text-center
+                          =sumByMale
+                      tr
+                        td
+                          | Female
+                        td.text-center
+                          =sumByFemale
+
+        .col-lg-12.col-md-12
+          .card
+            .card-header
+              h4.card-title  Statistical tables
+            .card-body
+              .table-responsive
+                table.table.tablesorter(id='')
+                  thead.text-primary
+                    tr
+                      th
+                        | Department
+                      th.text-center
+                        | Salary
+                  tbody
+                      tr
+                        td
+                          | Accounting
+                        td.text-center
+                          =sumByAccounting
+                      tr
+                        td
+                          | Human recources
+                        td.text-center
+                          =sumByHuman
+        .col-lg-12.col-md-12
+          .card
+            .card-header
+              h4.card-title  Statistical tables
+            .card-body
+              .table-responsive
+                table.table.tablesorter(id='')
+                  thead.text-primary
+                    tr
+                      th
+                        | Share Holder
+                      th.text-center
+                        | Salary
+                  tbody
+                      tr
+                        td
+                          | Yes
+                        td.text-center
+                          =sumByShareHolder
+        
+    footer.footer
+      .container-fluid
+        ul.nav
+        .copyright
+          | &copy;
+          script.
+            document.write(new Date().getFullYear())
+          | 2018 made with 
+          i
+          |  by team 3 
+.fixed-plugin
+  .dropdown.show-dropdown
+    a(href='#' data-toggle='dropdown')
+      i.fa.fa-cog.fa-2x  
+    ul.dropdown-menu
+      li.header-title  Sidebar Background
+      li.adjustments-line
+        a.switch-trigger.background-color(href='javascript:void(0)')
+          .badge-colors.text-center
+            span.badge.filter.badge-primary.active(data-color='primary')
+            span.badge.filter.badge-info(data-color='blue')
+            span.badge.filter.badge-success(data-color='green')
+          .clearfix
+      li.adjustments-line.text-center.color-change
+        span.color-label LIGHT MODE
+        span.badge.light-badge.mr-2
+        span.badge.dark-badge.ml-2
+        span.color-label DARK MODE
+      li.button-container
+        a.btn.btn-primary.btn-block.btn-round(href='https://www.creative-tim.com/product/black-dashboard' target='_blank') Download Now
+        a.btn.btn-default.btn-block.btn-round(href='https://demos.creative-tim.com/black-dashboard/docs/1.0/getting-started/introduction.html' target='_blank')
+          | Documentation
+      li.header-title Thank you for 95 shares!
+      li.button-container.text-center
+        button#twitter.btn.btn-round.btn-info
+          i.fab.fa-twitter
+          |  &middot; 45
+        button#facebook.btn.btn-round.btn-info
+          i.fab.fa-facebook-f
+          |  &middot; 50
+        br
+        br
+        a.github-button(href='https://github.com/creativetimofficial/black-dashboard' data-icon='octicon-star' data-size='large' data-show-count='true' aria-label='Star ntkme/github-buttons on GitHub') Star
+// Core JS Files
+script
+  include ../black-dashboard-master/assets/js/core/jquery.min.js
+  include ../black-dashboard-master/assets/js/core/popper.min.js
+  include ../black-dashboard-master/assets/js/core/bootstrap.min.js
+  include ../black-dashboard-master/assets/js/plugins/perfect-scrollbar.jquery.min.js
+  include ../black-dashboard-master/assets/js/plugins/bootstrap-notify.js
+  include ../black-dashboard-master/assets/js/black-dashboard.min.js
+  include ../black-dashboard-master/assets/js/core/jquery.min.js
+  include ../black-dashboard-master/assets/js/plugins/chartjs.min.js
+  include ../black-dashboard-master/assets/demo/demo.js
+
+script.
+  $(document).ready(function() {
+  $().ready(function() {
+  $sidebar = $('.sidebar');
+  $navbar = $('.navbar');
+  $main_panel = $('.main-panel');
+  $full_page = $('.full-page');
+  $sidebar_responsive = $('body > .navbar-collapse');
+  sidebar_mini_active = true;
+  white_color = false;
+  window_width = $(window).width();
+  fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+  $('.fixed-plugin a').click(function(event) {
+  if ($(this).hasClass('switch-trigger')) {
+  if (event.stopPropagation) {
+  event.stopPropagation();
+  } else if (window.event) {
+  window.event.cancelBubble = true;
+  }
+  }
+  });
+  $('.fixed-plugin .background-color span').click(function() {
+  $(this).siblings().removeClass('active');
+  $(this).addClass('active');
+  var new_color = $(this).data('color');
+  if ($sidebar.length != 0) {
+  $sidebar.attr('data', new_color);
+  }
+  if ($main_panel.length != 0) {
+  $main_panel.attr('data', new_color);
+  }
+  if ($full_page.length != 0) {
+  $full_page.attr('filter-color', new_color);
+  }
+  if ($sidebar_responsive.length != 0) {
+  $sidebar_responsive.attr('data', new_color);
+  }
+  });
+  $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
+  var $btn = $(this);
+  if (sidebar_mini_active == true) {
+  $('body').removeClass('sidebar-mini');
+  sidebar_mini_active = false;
+  blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+  } else {
+  $('body').addClass('sidebar-mini');
+  sidebar_mini_active = true;
+  blackDashboard.showSidebarMessage('Sidebar mini activated...');
+  }
+  // we simulate the window Resize so the charts will get updated in realtime.
+  var simulateWindowResize = setInterval(function() {
+  window.dispatchEvent(new Event('resize'));
+  }, 180);
+  // we stop the simulation of Window Resize after the animations are completed
+  setTimeout(function() {
+  clearInterval(simulateWindowResize);
+  }, 1000);
+  });
+  $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
+  var $btn = $(this);
+  if (white_color == true) {
+  $('body').addClass('change-background');
+  setTimeout(function() {
+  $('body').removeClass('change-background');
+  $('body').removeClass('white-content');
+  }, 900);
+  white_color = false;
+  } else {
+  $('body').addClass('change-background');
+  setTimeout(function() {
+  $('body').removeClass('change-background');
+  $('body').addClass('white-content');
+  }, 900);
+  white_color = true;
+  }
+  });
+  $('.light-badge').click(function() {
+  $('body').addClass('white-content');
+  });
+  $('.dark-badge').click(function() {
+  $('body').removeClass('white-content');
+  });
+  });
+  });
+script.
+  $(document).ready(function() {
+  // Javascript method's body can be found in assets/js/demos.js
+  demo.initDashboardPageCharts();
+  });
+script(src='https://cdn.trackjs.com/agent/v3/latest/t.js')
+script.
+  window.TrackJS &&
+  TrackJS.install({
+  token: "ee6fab19c5a04ac1a32a645abde4613a",
+  application: "black-dashboard-free"
+  });
