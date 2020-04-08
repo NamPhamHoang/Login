@@ -1,10 +1,12 @@
 
 /* BASIC */
-
+body {
+  background-color: #1e1e2f;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
 html {
-    background-color: #56baed;
-  }
-  
+    background-color:#4C0B5F
+}
   body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
