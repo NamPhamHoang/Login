@@ -4,6 +4,7 @@ const axios = require('axios')
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 const Data = require('./controllers/dataController')
+const Admin = require('./controllers/adminController')
 const loginController = require('./controllers/loginController')
 const logoutController = require('./controllers/logoutController')
 var cookieParser = require('cookie-parser')
@@ -79,12 +80,12 @@ app.get('/main', authLogin, (req,res) => {
     //res.send('./views/index')
     res.redirect('/')
 })
-
+//authen path
 app.get('/login', loginController.getLogin)
 app.post('/login', loginController.postLogin)
-
 app.get('/logout', authLogin, logoutController)
-
+//admin path
 app.use('/data', Data)
+app.use('/admin', authLogin, Admin)
 
 app.listen(3000,() => console.log("Listening PORT 3000."))

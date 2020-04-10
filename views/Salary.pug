@@ -1,0 +1,31 @@
+doctype html
+head
+  // Font special for pages
+  link(href='https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' rel='stylesheet')
+  style
+    include ../vendor/datepicker/daterangepicker.css
+    include ../vendor/select2/select2.min.css
+    include ./main.css
+    include ../vendor/font-awesome-4.7/css/font-awesome.min.css
+    
+.page-wrapper.bg-univers.p-t-180.p-b-100.font-robo
+  .wrapper.wrapper--w960
+    .card.card-2
+      .card-body
+        h2.title SALARY MANAGEMENT FORM
+        form(method='POST')
+          .input-group
+            input.input--style-2(type='text' placeholder='Salary amount' name='Salary')
+          .input-group
+            input.input--style-2(type='text' placeholder='Pay rates' name='Payrates')
+          .input-group
+            input.input--style-2(type='text' placeholder='Tax' name='tax')
+          .input-group
+            button.btn.btn--radius.btn--green(type='button') Update
+// Jquery JS
+script 
+    include ../vendor/jquery/jquery.min.js
+    include ../vendor/select2/select2.min.js
+    include ../vendor/datepicker/daterangepicker.js
+    include ../vendor/datepicker/moment.min.js
+
