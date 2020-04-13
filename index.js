@@ -80,6 +80,8 @@ app.get('/main', authLogin, (req,res) => {
     //res.send('./views/index')
     res.redirect('/')
 })
+
+
 //authen path
 app.get('/login', loginController.getLogin)
 app.post('/login', loginController.postLogin)
@@ -87,5 +89,6 @@ app.get('/logout', authLogin, logoutController)
 //admin path
 app.use('/data', Data)
 app.use('/admin', authLogin, Admin)
+
 
 app.listen(3000,() => console.log("Listening PORT 3000."))

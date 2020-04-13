@@ -3,7 +3,7 @@ const mysql = require('mysql')
 const configMySQL = {
     host     : 'localhost',
     user     : 'root',
-    password : '',
+    password : '1234',
     database : 'payroll'
 }
 //May MINH AN

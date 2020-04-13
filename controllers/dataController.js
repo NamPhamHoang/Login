@@ -7,7 +7,7 @@ const mysql = require('mysql')
 const configMySQL = {
     host     : 'localhost',
     user     : 'root',
-    password : '',
+    password : '1234',
     database : 'payroll'
 }
 //May MINH AN
@@ -26,10 +26,16 @@ connection.connect();
 const router = express.Router()
 
 const configSQLSerVer = {
-    user: 'sa',
-    password: "moinui123",
-    server: 'localhost',
-    database: 'HR'
+    user: 'phamquan',
+    password: '1234',
+    server: 'DESKTOP-OIV2DAR\SQLEXPRESS',
+    database: 'HR',
+    options: {encrypt: false},
+    pool: {
+      max: 100,
+      min: 0,
+      idleTimeoutMillis: 30000
+    }
 }
 
 sql.connect(configSQLSerVer, (err) => {

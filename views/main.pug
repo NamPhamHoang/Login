@@ -166,6 +166,53 @@ head
                         | Email
                       th
                         | City
+                      th
+                        | Gender
+                      th
+                        | Date of birth
+                      th
+                        | Address
+                      th.text-center
+                        | Salary
+                      th
+                        | Active
+                  tbody
+                    each person in personals
+                      tr
+                          td
+                              =person.First_Name + person.Middle_Initial + person.Last_Name 
+                          td
+                              =person.Email
+                          td
+                              =person.City
+                          td
+                              =person.Gender
+                          td
+                              =person.Gender
+                          td 
+                              =person.Address1
+                          td.text-center
+                              =person.Pay_Rates.Pay_Amount
+                          td  
+                            div(style='max-width: 250px;display: flex;justify-content: space-between;')
+                              a.btn.btn--radius.btn--green(href='#' style='font-size:0.72em') Update
+                              button.btn.btn--radius.btn--green(type='button' style='font-size:0.72em') Remove
+      .row
+        .col-lg-12.col-md-12
+          .card
+            .card-header
+              h4.card-title  Employee Table
+            .card-body
+              .table-responsive
+                table.table.tablesorter(id='')
+                  thead.text-primary
+                    tr
+                      th
+                        | Name
+                      th
+                        | Email
+                      th
+                        | City
                       th.text-center
                         | Salary
                   tbody
@@ -179,7 +226,6 @@ head
                               =person.City
                           td.text-center
                               =person.Pay_Rates.Pay_Amount
-
 
         .col-lg-12.col-md-12
           .card
