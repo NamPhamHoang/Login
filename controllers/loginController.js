@@ -3,7 +3,7 @@ const mysql = require('mysql')
 const configMySQL = {
     host     : 'localhost',
     user     : 'root',
-    password : '1234',
+    password : '',
     database : 'payroll'
 }
 //May MINH AN
@@ -32,8 +32,7 @@ module.exports.postLogin = async (req, res) => {
             })
         } else {
             if (user.Password==req.body.password) {
-                res.cookie("username",user.User_Name); 
-                res.cookie("password",user.Password); 
+                res.cookie("user",user); 
                 res.status(200).redirect('/')            
             }
             else {

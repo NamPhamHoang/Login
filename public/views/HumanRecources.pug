@@ -16,13 +16,16 @@ head
     .card.card-2
       .card-body
         h2.title INFORMATION MANAGEMENT FORM
-        form(method='POST')
+        form(method='POST' action=`/edit${path}`)
           .input-group
-            input.input--style-2(type='text' placeholder='Employee ID' name='employee_id')
+            label(for='employee_id' style="font-weight: bold;") ID:
+            input.input--style-2(type='text' value=user.Employee_ID disabled)
+            input.input--style-2(type='hidden' value=user.Employee_ID name='employee_id')
           .row.row-space
             .col-2
               .input-group
-                input.input--style-2.js-datepicker(type='text' placeholder='Birthdate' name='birthday')
+                label(for='department' style="font-weight: bold;") Department:
+                input.input--style-2.js-datepicker(type='text' value=user.Job_History.Department name='department')
                 i.zmdi.zmdi-calendar-note.input-icon.js-btn-calendar
             .col-2
               .input-group
@@ -33,25 +36,24 @@ head
                     option Female
                   .select-dropdown
           .input-group
-            input.input--style-2(type='text' placeholder='Last name' name='last_name')
+            label(for='last_name' style="font-weight: bold;") Last Name:
+            input.input--style-2(type='text' value=user.Last_Name name='last_name')
           .input-group
-            input.input--style-2(type='text' placeholder='First name' name='first_name')
+            label(for='first_name' style="font-weight: bold;") First Name:
+            input.input--style-2(type='text' value=user.First_Name name='first_name')
           .input-group
-            input.input--style-2(type='text' placeholder='Email' name='email')
+            label(for='email' style="font-weight: bold;") Email:
+            input.input--style-2(type='text' value=user.Email name='email')
           .input-group
-            input.input--style-2(type='text' placeholder='City' name='city')
+            label(for='city' style="font-weight: bold;") City:
+            input.input--style-2(type='text' value=user.City name='city')
           .input-group
-            input.input--style-2(type='text' placeholder='Adress' name='adress')
+            label(for='phone' style="font-weight: bold;") Phone:
+            input.input--style-2(type='text' value=user.Phone_Number name='phone')
           .row
             .col-6.marginBtn
               .p-t-30
-                button.btn.btn--radius.btn--green(type='button') Add
-            .col-6.marginBtn
-              .p-t-30
-                button.btn.btn--radius.btn--green(type='button') Delete
-            .col-6.marginBtn
-              .p-t-30
-                button.btn.btn--radius.btn--green(type='button') Update
+                button.btn.btn--radius.btn--green(type='submit') Update
                 .col-lg-12.col-md-12
                   .card.color
                 

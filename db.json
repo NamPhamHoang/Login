@@ -3,7 +3,7 @@
     {
       "Employee_ID": 1001,
       "First_Name": "Huynh",
-      "Last_Name": "Tuan",
+      "Last_Name": "Nam",
       "Middle_Initial": "Duc",
       "Address1": "Cam Le Hoa Phat",
       "Address2": null,
@@ -11,7 +11,7 @@
       "State": "VietNamese",
       "Zip": null,
       "Email": "huynhhoangtuan112@duytan.edu.vn",
-      "Phone_Number": "02314235",
+      "Phone_Number": "098291823",
       "Social_Security_Number": "1120",
       "Drivers_License": "Professor",
       "Marital_Status": "Single",

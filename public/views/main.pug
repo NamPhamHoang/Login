@@ -5,7 +5,7 @@ head
   link(rel='apple-touch-icon' sizes='76x76' href='./black-dashboard-master/assets/img/apple-icon.png')
   link(rel='icon' type='image/png' href='./black-dashboard-master/assets/img/favicon.png')
   title
-    | Black Dashboard by Creative Tim
+    | Dashboard
   // Fonts and icons
  
   link(href='https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800' rel='stylesheet')
@@ -20,14 +20,19 @@ head
     .sidebar-wrapper
       .logo
         a.simple-text.logo-mini(href='javascript:void(0)')
-          | CT
+          | NN
         a.simple-text.logo-normal(href='javascript:void(0)')
-          | Creative Tim
+          | Team 2
       ul.nav
         li.active
-          a(href='./dashboard.html')
+          a(href='./')
             i.tim-icons.icon-chart-pie-36
             p Dashboard
+      ul.nav
+        li.active
+          a(href='./edit/add')
+            i.tim-icons.icon-chart-pie-36
+            p New Employee
   .main-panel
     // Navbar
     nav.navbar.navbar-expand-lg.navbar-absolute.navbar-transparent
@@ -45,42 +50,25 @@ head
           span.navbar-toggler-bar.navbar-kebab
         #navigation.collapse.navbar-collapse
           ul.navbar-nav.ml-auto
-            li.search-bar.input-group
-              button#search-button.btn.btn-link(data-toggle='modal' data-target='#searchModal')
-                i.tim-icons.icon-zoom-split
-                span.d-lg-none.d-md-block Search
-            li.dropdown.nav-item
-              a.dropdown-toggle.nav-link(href='javascript:void(0)' data-toggle='dropdown')
-                .notification.d-none.d-lg-block.d-xl-block
-                i.tim-icons.icon-sound-wave
-                p.d-lg-none
-                  | Notifications
-              ul.dropdown-menu.dropdown-menu-right.dropdown-navbar
-                li.nav-link
-                  a.nav-item.dropdown-item(href='#') Mike John responded to your email
-                li.nav-link
-                  a.nav-item.dropdown-item(href='javascript:void(0)') You have 5 more tasks
-                li.nav-link
-                  a.nav-item.dropdown-item(href='javascript:void(0)') Your friend Michael is in town
-                li.nav-link
-                  a.nav-item.dropdown-item(href='javascript:void(0)') Another notification
-                li.nav-link
-                  a.nav-item.dropdown-item(href='javascript:void(0)') Another one
+            
             li.dropdown.nav-item
               a.dropdown-toggle.nav-link(href='#' data-toggle='dropdown')
                 .photo
-                  img(src='../black-dashboard-master/assets/img/anime3.png' alt='Profile Photo')
+                  img(src='./public/black-dashboard-master/assets/img/anime3.png' alt='Profile Photo')
                 b.caret.d-none.d-lg-block.d-xl-block
                 p.d-lg-none
                   | Log out
               ul.dropdown-menu.dropdown-navbar
+                li.nav-link
+                  a.nav-item.dropdown-item(href='javascript:void(0)' style='font-weight: bolder;font-size: 15px;text-align: center;')
+                    =user.User_Name 
                 li.nav-link
                   a.nav-item.dropdown-item(href='javascript:void(0)') Profile
                 li.nav-link
                   a.nav-item.dropdown-item(href='javascript:void(0)') Settings
                 li.dropdown-divider
                 li.nav-link
-                  a.nav-item.dropdown-item(href='javascript:void(0)') Log out
+                  a.nav-item.dropdown-item(href='./logout') Log out
             li.separator.d-lg-none
     #searchModal.modal.modal-search.fade(tabindex='-1' role='dialog' aria-labelledby='searchModal' aria-hidden='true')
       .modal-dialog(role='document')
@@ -180,7 +168,7 @@ head
                     each person in personals
                       tr
                           td
-                              =person.First_Name + person.Middle_Initial + person.Last_Name 
+                              =person.First_Name + " " + person.Middle_Initial + " " + person.Last_Name 
                           td
                               =person.Email
                           td
@@ -195,8 +183,9 @@ head
                               =person.Pay_Rates.Pay_Amount
                           td  
                             div(style='max-width: 250px;display: flex;justify-content: space-between;')
-                              a.btn.btn--radius.btn--green(href='#' style='font-size:0.72em') Update
-                              button.btn.btn--radius.btn--green(type='button' style='font-size:0.72em') Remove
+                              a.btn.btn--radius.btn--green(href=`/edit/update?id=${person.Employee_ID}` style='font-size:0.72em') Update
+                              div(style='width: 8px; display: flex; height: 5px;')
+                              a.btn.btn--radius.btn--green(href=`/edit/remove?id=${person.Employee_ID}` style='font-size:0.72em') Remove
       .row
         .col-lg-12.col-md-12
           .card
@@ -219,7 +208,7 @@ head
                     each person in personals
                       tr
                           td
-                              =person.First_Name + person.Middle_Initial + person.Last_Name 
+                              =person.First_Name + " " + person.Middle_Initial + " " + person.Last_Name 
                           td
                               =person.Email
                           td
@@ -305,7 +294,7 @@ head
             document.write(new Date().getFullYear())
           | 2018 made with 
           i
-          |  by team 3 
+          |  by team 2
 .fixed-plugin
   .dropdown.show-dropdown
     a(href='#' data-toggle='dropdown')
@@ -328,7 +317,6 @@ head
         a.btn.btn-primary.btn-block.btn-round(href='https://www.creative-tim.com/product/black-dashboard' target='_blank') Download Now
         a.btn.btn-default.btn-block.btn-round(href='https://demos.creative-tim.com/black-dashboard/docs/1.0/getting-started/introduction.html' target='_blank')
           | Documentation
-      li.header-title Thank you for 95 shares!
       li.button-container.text-center
         button#twitter.btn.btn-round.btn-info
           i.fab.fa-twitter
@@ -337,8 +325,6 @@ head
           i.fab.fa-facebook-f
           |  &middot; 50
         br
-        br
-        a.github-button(href='https://github.com/creativetimofficial/black-dashboard' data-icon='octicon-star' data-size='large' data-show-count='true' aria-label='Star ntkme/github-buttons on GitHub') Star
 // Core JS Files
 script
   include ../black-dashboard-master/assets/js/core/jquery.min.js
